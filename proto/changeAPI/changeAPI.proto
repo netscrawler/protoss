@@ -1,0 +1,25 @@
+syntax = "proto3";
+package cnvrt;
+option go_package = "netscrawler.cnvrt.v1;cnvrtv1";
+
+
+
+message ConvertRequest {
+  uint32 amount = 1;
+  string target_currency = 2;
+}
+
+message ConvertResponse {
+  uint32 base_amount = 1;
+  uint32 converted_amount = 2;
+  string converted_currency = 3;
+  float rate = 4;
+}
+
+service Converter {
+
+  rpc Convert(ConvertRequest) returns (ConvertResponse) {
+
+  }
+}
+
